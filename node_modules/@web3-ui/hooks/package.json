@@ -1,0 +1,53 @@
+{
+  "name": "@web3-ui/hooks",
+  "license": "MIT",
+  "version": "0.12.0",
+  "private": false,
+  "description": "React hooks for web3",
+  "keywords": [
+    "web3",
+    "ui",
+    "react",
+    "hooks",
+    "web3-ui",
+    "components"
+  ],
+  "author": "Developer DAO",
+  "homepage": "https://github.com/Developer-DAO/web3-ui/",
+  "bugs": {
+    "url": "https://github.com/Developer-DAO/web3-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developer-DAO/web3-ui/"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,js,jsx}\"",
+    "format:check": "prettier --list-different \"src/**/*.{ts,tsx,json,js,jsx}\"",
+    "test": "jest --maxWorkers=2",
+    "test:watch": "yarn test --watch",
+    "test:coverage": "jest --coverage --colors --maxWorkers=2",
+    "prepublishOnly": "cp ../../LICENSE ./LICENSE"
+  },
+  "main": "dist/web3-ui-hooks.cjs.js",
+  "module": "dist/web3-ui-hooks.esm.js",
+  "types": "dist/web3-ui-hooks.cjs.d.ts",
+  "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "web3modal": "^1.9.4"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0 | >= 17.0.0",
+    "ethers": "^5.5.1"
+  },
+  "devDependencies": {
+    "@portis/web3": "^4.0.6",
+    "authereum": "^0.1.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

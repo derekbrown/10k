@@ -1,0 +1,5 @@
+export { release, retain } from '@shopify/rpc';
+export { createWorkerFactory, expose, terminate } from './create/worker.esnext';
+export { createPlainWorkerFactory } from './create/plain-worker.esnext';
+export { createWorkerMessenger } from './messenger/worker.esnext';
+export { createIframeWorkerMessenger } from './messenger/iframe.esnext';

@@ -1,0 +1,13 @@
+import { PricingInfoData } from './AuctionInfoTypes';
+export declare enum AuctionStateInfo {
+    LOADING = "LOADING",
+    NO_PRICING = "NO_PRICING",
+    PERPETUAL_BID = "PERPETUAL_BID",
+    PERPETUAL_ASK = "PERPETUAL_ASK",
+    RESERVE_AUCTION_PENDING = "RESERVE_AUCTION_PENDING",
+    RESERVE_AUCTION_ACTIVE = "RESERVE_AUCTION_ACTIVE",
+    RESERVE_AUCTION_LAST_15 = "RESERVE_AUCTION_LAST_15",
+    RESERVE_AUCTION_ENDED = "RESERVE_AUCTION_ENDED",
+    RESERVE_AUCTION_FINISHED = "RESERVE_AUCTION_FINISHED"
+}
+export declare function getAuctionState(pricing: PricingInfoData): AuctionStateInfo;

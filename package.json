@@ -1,0 +1,103 @@
+{
+  "name": "10kdigits",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@0x/subproviders": "^6.6.2",
+    "@absinthe/socket-apollo-link": "^0.2.1",
+    "@absinthe/socket-graphiql": "^0.2.1",
+    "@alch/alchemy-web3": "^1.2.5",
+    "@apollo/client": "~3.4.0",
+    "@apollo/react-hooks": "^4.0.0",
+    "@craco/craco": "^6.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@headlessui/react": "^1.3.0",
+    "@heroicons/react": "^1.0.1",
+    "@jumpn/utils-graphql": "^0.6.0",
+    "@react-native-async-storage/async-storage": "^1.15.8",
+    "@shopify/react-web-worker": "^2.1.0",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "@web3-ui/core": "^0.8.0",
+    "@zoralabs/nft-components": "^0.3.2",
+    "apollo-absinthe-upload-link": "^1.7.0",
+    "apollo-boost": "^0.4.9",
+    "apollo-link-context": "^1.0.20",
+    "apollo-upload-client": "^17.0.0",
+    "apollo3-cache-persist": "^0.10.0",
+    "babel-polyfill": "^6.26.0",
+    "base64url": "^3.0.1",
+    "core-js": "^2.6.0",
+    "crypto-js": "^4.1.1",
+    "ethers": "^5.6.4",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-apollo": "^3.1.5",
+    "react-code-input": "^3.10.1",
+    "react-detect-click-outside": "^1.1.1",
+    "react-device-detect": "^2.1.2",
+    "react-dom": "^17.0.2",
+    "react-edit-text": "^4.4.0",
+    "react-helmet": "^6.1.0",
+    "react-hotkeys-hook": "^3.3.2",
+    "react-instantsearch-dom": "^6.12.1",
+    "react-load-script": "^0.0.6",
+    "react-mentions": "^4.3.0",
+    "react-moment": "^1.1.1",
+    "react-native-qrcode-svg-jsx": "^6.1.1",
+    "react-native-svg": "^12.1.1",
+    "react-player": "^2.9.0",
+    "react-qr-code": "^2.0.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-select": "^5.2.1",
+    "react-share": "^4.4.0",
+    "react-swipeable-views": "^0.14.0",
+    "redux": "^4.1.1",
+    "render-if": "^0.1.1",
+    "rfc4648": "^1.5.0",
+    "rxjs": "^7.4.0",
+    "subscriptions-transport-ws": "^0.9.19",
+    "use-nft": "^0.10.2",
+    "use-wallet": "^0.10.0",
+    "walletlink": "^2.2.6",
+    "web-vitals": "^1.1.2",
+    "web3": "^1.6.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "chrome >= 67",
+      "edge >= 79",
+      "firefox >= 68",
+      "opera >= 54",
+      "safari >= 14"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
+  }
+}

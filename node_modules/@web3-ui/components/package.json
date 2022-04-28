@@ -1,0 +1,53 @@
+{
+  "name": "@web3-ui/components",
+  "license": "MIT",
+  "version": "0.12.0",
+  "private": false,
+  "description": "React UI components for web3",
+  "keywords": [
+    "web3",
+    "ui",
+    "react",
+    "hooks",
+    "web3-ui",
+    "components"
+  ],
+  "author": "Developer DAO",
+  "homepage": "https://github.com/Developer-DAO/web3-ui/",
+  "bugs": {
+    "url": "https://github.com/Developer-DAO/web3-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developer-DAO/web3-ui/"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,js,jsx}\"",
+    "format:check": "prettier --list-different \"src/**/*.{ts,tsx,json,js,jsx}\"",
+    "prepublishOnly": "cp ../../LICENSE ./LICENSE"
+  },
+  "main": "dist/web3-ui-components.cjs.js",
+  "module": "dist/web3-ui-components.esm.js",
+  "types": "dist/web3-ui-components.cjs.d.ts",
+  "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/react": "^1.7.2",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0 | >= 17.0.0",
+    "react-dom": ">= 16.8.0 | >= 17.0.0",
+    "ethers": "^5.5.2"
+  },
+  "devDependencies": {
+    "@web3-ui/hooks": "^0.12.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

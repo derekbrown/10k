@@ -1,0 +1,22 @@
+import { NFTDataType } from '../fetcher/AuctionInfoTypes';
+export declare type useNFTType = {
+    currencyLoaded: boolean;
+    error?: string;
+    data?: NFTDataType;
+};
+declare type OptionsType = {
+    refreshInterval?: number;
+    initialData?: any;
+    loadCurrencyInfo?: boolean;
+    useBetaIndexer?: boolean;
+};
+/**
+ * Fetches on-chain NFT data and pricing for the given zNFT id
+ *
+ * @param contractAddress address of the contract, if null and tokenID is passed in, a ZNFT is assumed
+ * @param tokenId id of NFT to fetch blockchain information for
+ * @param options SWR flags and an option to load currency info
+ * @returns useNFTType hook results include loading, error, and chainNFT data.
+ */
+export declare function useNFT(contractAddress?: string, tokenId?: string, options?: OptionsType): useNFTType;
+export {};
