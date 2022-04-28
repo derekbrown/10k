@@ -24,7 +24,7 @@ function App() {
             </div>
           </nav>
           <Wrapper number={number}/>
-          <h2 className="cursor-pointer fixed bottom-4 text-white text-center text-sm">built with 💗 by <a className="border-b border-white hover:border-transparent cursor-pointer" href="https://twitter.com/derekbrown" rel="noreferrer" target="_blank">2815.eth</a> for <a className="border-b border-white hover:border-transparent cursor-pointer" href="https://discord.gg/467tchug" rel="noreferrer" target="_blank">10KClub</a>. tips welcome 🥳.</h2>
+          <h2 className="rounded-full bg-gray-800 py-2 px-8 cursor-pointer fixed bottom-4 text-white text-center text-xs">built with 💗 by <a className="border-b border-white hover:border-transparent cursor-pointer" href="https://twitter.com/derekbrown" rel="noreferrer" target="_blank">2815.eth</a> for <a className="border-b border-white hover:border-transparent cursor-pointer" href="https://discord.gg/467tchug" rel="noreferrer" target="_blank">10KClub</a>. tips welcome 🥳.</h2>
         </div>
       </Provider>
     </NftProvider>
