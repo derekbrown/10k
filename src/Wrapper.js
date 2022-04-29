@@ -5,8 +5,8 @@ import Tokens from "./Tokens";
 function Wrapper({ number, match }) {
   return (
     <div className="flex flex-col w-full bg-white rounded-lg p-8">
-      <ENSHeader number={match && match.params && match.params.num ? match.params.num : number}/>
-      <Tokens number={match && match.params && match.params.num ? match.params.num : number}/>
+      <ENSHeader number={number ? number : (match && match.params && match.params.num ? match.params.num : 2815)}/>
+      <Tokens number={number ? number : (match && match.params && match.params.num ? match.params.num : 2815)}/>
     </div>
   );
 }

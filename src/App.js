@@ -9,7 +9,7 @@ import Wrapper from "./Wrapper";
 const fetcher = ["ethers", { ethers, provider: new ethers.providers.AlchemyProvider(null, "92FsN3H0jQHXFn3_eNKYXY9IRPiMcnI7") }]
 
 function App() {
-  const [ number, setNumber ] = useState(2815);
+  const [ number, setNumber ] = useState(false);
 
   const handleChange = (event) => {
     setNumber(event.target.value);
@@ -22,7 +22,9 @@ function App() {
           <div className="flex flex-col items-center justify-start bg-brand-gradient w-full min-h-screen h-full p-8">
             <AppHeader handleChange={handleChange}/>
             <Switch>
-              <Route path="/:num" component={Wrapper}/>
+              <Route path="/:num" children={({ match }) => (
+                <Wrapper match={match} number={number}/>
+              )}/>
               <Route>
                 <Wrapper number={number}/>
               </Route>
