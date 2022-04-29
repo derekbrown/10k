@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import { Provider, NETWORKS } from '@web3-ui/core';
 import { NftProvider } from "use-nft"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AppHeader from "./AppHeader";
 import Wrapper from "./Wrapper";
 
 const fetcher = ["ethers", { ethers, provider: new ethers.providers.AlchemyProvider(null, "92FsN3H0jQHXFn3_eNKYXY9IRPiMcnI7") }]
@@ -19,12 +20,7 @@ function App() {
       <NftProvider fetcher={fetcher}>
         <Provider network={NETWORKS.mainnet}>
           <div className="flex flex-col items-center justify-start bg-brand-gradient w-full min-h-screen h-full p-8">
-            <nav className="flex flex-row mb-8 justify-between w-full items-center">
-              <div className="flex flex-row items-center">
-                <h2 className="bebas text-6xl text-white font-bold">10K</h2>
-                <input className="md:w-72 lg:w-96 ml-8 p-2 rounded -mt-1" placeholder="Lookup Number" type="text" onChange={handleChange} />
-              </div>
-            </nav>
+            <AppHeader handleChange={handleChange}/>
             <Switch>
               <Route path="/:num" component={Wrapper}/>
               <Route>

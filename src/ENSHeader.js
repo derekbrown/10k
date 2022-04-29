@@ -1,7 +1,7 @@
 import React from "react";
 import ENSInfo from "./ENSInfo";
 
-function Header({number}) {
+function ENSHeader({number}) {
 
   return (
     <div className="flex flex-col sm:flex-row w-full">
@@ -11,4 +11,4 @@ function Header({number}) {
   );
 }
 
-export default Header;
+export default ENSHeader;
