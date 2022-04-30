@@ -36,4 +36,5 @@ export const SUPPORTED_NFTS = [
   {name: "Creature World",    contractAddress: "0xc92ceddfb8dd984a89fb494c376f9a48b999aafc"},
   {name: "FLUF World",        contractAddress: "0xccc441ac31f02cd96c153db6fd5fe0a2f4e6a68d"},
   {name: "Gh0stly Gh0sts",    contractAddress: "0xa74ae2c6fca0cedbaef30a8ceef834b247186bcf"},
+  {name: "BGAN Punks",        contractAddress: "0x31385d3520bced94f77aae104b406994d8f2168c"},
 ]
