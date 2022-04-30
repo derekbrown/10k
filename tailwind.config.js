@@ -27,7 +27,7 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-      purple: '#c345cf',
+      purple: '#6d28d9',
       lightpurple: '#f5e1f7',
       peach: '#fb7677',
       lightpeach: '#fef1f1',

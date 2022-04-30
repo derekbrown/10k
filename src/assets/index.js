@@ -1,5 +1,6 @@
 // IMAGES
 export { default as DISCORD } from './images/discord.png';
+export { default as ENS_CIRCLE } from './images/ens_circle.png';
 export { default as ETHERSCAN } from './images/etherscan.webp';
 export { default as LOOKSRARE } from './images/looksrare.webp';
 export { default as OPENSEA } from './images/opensea.png';
