@@ -1,4 +1,6 @@
-const Polynomial = require('./polynomial')
+var BufferUtil = require('../utils/buffer')
+var Polynomial = require('./polynomial')
+var Buffer = require('buffer').Buffer
 
 function ReedSolomonEncoder (degree) {
   this.genPoly = undefined
@@ -22,8 +24,8 @@ ReedSolomonEncoder.prototype.initialize = function initialize (degree) {
 /**
  * Encodes a chunk of data
  *
- * @param  {Uint8Array} data Buffer containing input data
- * @return {Uint8Array}      Buffer containing encoded data
+ * @param  {Buffer} data Buffer containing input data
+ * @return {Buffer}      Buffer containing encoded data
  */
 ReedSolomonEncoder.prototype.encode = function encode (data) {
   if (!this.genPoly) {
@@ -32,20 +34,20 @@ ReedSolomonEncoder.prototype.encode = function encode (data) {
 
   // Calculate EC for this data block
   // extends data size to data+genPoly size
-  const paddedData = new Uint8Array(data.length + this.degree)
-  paddedData.set(data)
+  var pad = BufferUtil.alloc(this.degree)
+  var paddedData = Buffer.concat([data, pad], data.length + this.degree)
 
   // The error correction codewords are the remainder after dividing the data codewords
   // by a generator polynomial
-  const remainder = Polynomial.mod(paddedData, this.genPoly)
+  var remainder = Polynomial.mod(paddedData, this.genPoly)
 
   // return EC data blocks (last n byte, where n is the degree of genPoly)
   // If coefficients number in remainder are less than genPoly degree,
   // pad with 0s to the left to reach the needed number of coefficients
-  const start = this.degree - remainder.length
+  var start = this.degree - remainder.length
   if (start > 0) {
-    const buff = new Uint8Array(this.degree)
-    buff.set(remainder, start)
+    var buff = BufferUtil.alloc(this.degree)
+    remainder.copy(buff, start)
 
     return buff
   }

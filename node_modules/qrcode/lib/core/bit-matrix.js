@@ -1,3 +1,5 @@
+var BufferUtil = require('../utils/buffer')
+
 /**
  * Helper class to handle QR Code symbol modules
  *
@@ -9,8 +11,8 @@ function BitMatrix (size) {
   }
 
   this.size = size
-  this.data = new Uint8Array(size * size)
-  this.reservedBit = new Uint8Array(size * size)
+  this.data = BufferUtil.alloc(size * size)
+  this.reservedBit = BufferUtil.alloc(size * size)
 }
 
 /**
@@ -23,7 +25,7 @@ function BitMatrix (size) {
  * @param {Boolean} reserved
  */
 BitMatrix.prototype.set = function (row, col, value, reserved) {
-  const index = row * this.size + col
+  var index = row * this.size + col
   this.data[index] = value
   if (reserved) this.reservedBit[index] = true
 }

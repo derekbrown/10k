@@ -1,4 +1,4 @@
-const SJIS_UTF8 = [
+var SJIS_UTF8 = [
   [0x8140, '　、。，．・：；？！゛゜´｀¨＾￣＿ヽヾゝゞ〃仝々〆〇ー―‐／＼～∥｜…‥‘’“”（）〔〕［］｛｝〈〉《》「」『』【】＋－±×'],
   [0x8180, '÷＝≠＜＞'],
   [0x818f, '￥＄￠￡％＃＆＊＠§☆★'],
@@ -89,10 +89,10 @@ const SJIS_UTF8 = [
 module.exports = function toSJIS (utf8Char) {
   if (!utf8Char || utf8Char === '') return
 
-  for (let i = 0; i < SJIS_UTF8.length; i++) {
-    const kanji = SJIS_UTF8[i][1]
+  for (var i = 0; i < SJIS_UTF8.length; i++) {
+    var kanji = SJIS_UTF8[i][1]
 
-    const posIndex = kanji.indexOf(utf8Char)
+    var posIndex = kanji.indexOf(utf8Char)
     if (posIndex >= 0) {
       return SJIS_UTF8[i][0] + posIndex
     }

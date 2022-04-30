@@ -6,12 +6,12 @@ function BitBuffer () {
 BitBuffer.prototype = {
 
   get: function (index) {
-    const bufIndex = Math.floor(index / 8)
+    var bufIndex = Math.floor(index / 8)
     return ((this.buffer[bufIndex] >>> (7 - index % 8)) & 1) === 1
   },
 
   put: function (num, length) {
-    for (let i = 0; i < length; i++) {
+    for (var i = 0; i < length; i++) {
       this.putBit(((num >>> (length - i - 1)) & 1) === 1)
     }
   },
@@ -21,7 +21,7 @@ BitBuffer.prototype = {
   },
 
   putBit: function (bit) {
-    const bufIndex = Math.floor(this.length / 8)
+    var bufIndex = Math.floor(this.length / 8)
     if (this.buffer.length <= bufIndex) {
       this.buffer.push(0)
     }

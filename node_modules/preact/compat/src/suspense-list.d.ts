@@ -1,11 +1,11 @@
-import { Component, ComponentChild, ComponentChildren } from '../../src';
+import { Component, ComponentChild } from '../../src';
 
 //
 // SuspenseList
 // -----------------------------------
 
 export interface SuspenseListProps {
-	children?: ComponentChildren;
+	children?: preact.ComponentChildren;
 	revealOrder?: 'forwards' | 'backwards' | 'together';
 }
 

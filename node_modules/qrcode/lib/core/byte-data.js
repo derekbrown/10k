@@ -1,9 +1,9 @@
-const encodeUtf8 = require('encode-utf8')
-const Mode = require('./mode')
+var BufferUtil = require('../utils/buffer')
+var Mode = require('./mode')
 
 function ByteData (data) {
   this.mode = Mode.BYTE
-  this.data = new Uint8Array(encodeUtf8(data))
+  this.data = BufferUtil.from(data)
 }
 
 ByteData.getBitsLength = function getBitsLength (length) {
@@ -19,7 +19,7 @@ ByteData.prototype.getBitsLength = function getBitsLength () {
 }
 
 ByteData.prototype.write = function (bitBuffer) {
-  for (let i = 0, l = this.data.length; i < l; i++) {
+  for (var i = 0, l = this.data.length; i < l; i++) {
     bitBuffer.put(this.data[i], 8)
   }
 }

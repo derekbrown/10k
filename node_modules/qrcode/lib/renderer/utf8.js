@@ -1,13 +1,13 @@
-const Utils = require('./utils')
+var Utils = require('./utils')
 
-const BLOCK_CHAR = {
+var BLOCK_CHAR = {
   WW: ' ',
   WB: '▄',
   BB: '█',
   BW: '▀'
 }
 
-const INVERTED_BLOCK_CHAR = {
+var INVERTED_BLOCK_CHAR = {
   BB: ' ',
   BW: '▄',
   WW: '█',
@@ -22,27 +22,27 @@ function getBlockChar (top, bottom, blocks) {
 }
 
 exports.render = function (qrData, options, cb) {
-  const opts = Utils.getOptions(options)
-  let blocks = BLOCK_CHAR
+  var opts = Utils.getOptions(options)
+  var blocks = BLOCK_CHAR
   if (opts.color.dark.hex === '#ffffff' || opts.color.light.hex === '#000000') {
     blocks = INVERTED_BLOCK_CHAR
   }
 
-  const size = qrData.modules.size
-  const data = qrData.modules.data
+  var size = qrData.modules.size
+  var data = qrData.modules.data
 
-  let output = ''
-  let hMargin = Array(size + (opts.margin * 2) + 1).join(blocks.WW)
+  var output = ''
+  var hMargin = Array(size + (opts.margin * 2) + 1).join(blocks.WW)
   hMargin = Array((opts.margin / 2) + 1).join(hMargin + '\n')
 
-  const vMargin = Array(opts.margin + 1).join(blocks.WW)
+  var vMargin = Array(opts.margin + 1).join(blocks.WW)
 
   output += hMargin
-  for (let i = 0; i < size; i += 2) {
+  for (var i = 0; i < size; i += 2) {
     output += vMargin
-    for (let j = 0; j < size; j++) {
-      const topModule = data[i * size + j]
-      const bottomModule = data[(i + 1) * size + j]
+    for (var j = 0; j < size; j++) {
+      var topModule = data[i * size + j]
+      var bottomModule = data[(i + 1) * size + j]
 
       output += getBlockChar(topModule, bottomModule, blocks)
     }
@@ -65,7 +65,7 @@ exports.renderToFile = function renderToFile (path, qrData, options, cb) {
     options = undefined
   }
 
-  const fs = require('fs')
-  const utf8 = exports.render(qrData, options)
+  var fs = require('fs')
+  var utf8 = exports.render(qrData, options)
   fs.writeFile(path, utf8, cb)
 }

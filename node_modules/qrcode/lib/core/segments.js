@@ -1,11 +1,11 @@
-const Mode = require('./mode')
-const NumericData = require('./numeric-data')
-const AlphanumericData = require('./alphanumeric-data')
-const ByteData = require('./byte-data')
-const KanjiData = require('./kanji-data')
-const Regex = require('./regex')
-const Utils = require('./utils')
-const dijkstra = require('dijkstrajs')
+var Mode = require('./mode')
+var NumericData = require('./numeric-data')
+var AlphanumericData = require('./alphanumeric-data')
+var ByteData = require('./byte-data')
+var KanjiData = require('./kanji-data')
+var Regex = require('./regex')
+var Utils = require('./utils')
+var dijkstra = require('dijkstrajs')
 
 /**
  * Returns UTF8 byte length
@@ -26,8 +26,8 @@ function getStringByteLength (str) {
  * @return {Array}       Array of object with segments data
  */
 function getSegments (regex, mode, str) {
-  const segments = []
-  let result
+  var segments = []
+  var result
 
   while ((result = regex.exec(str)) !== null) {
     segments.push({
@@ -49,10 +49,10 @@ function getSegments (regex, mode, str) {
  * @return {Array}          Array of object with segments data
  */
 function getSegmentsFromString (dataStr) {
-  const numSegs = getSegments(Regex.NUMERIC, Mode.NUMERIC, dataStr)
-  const alphaNumSegs = getSegments(Regex.ALPHANUMERIC, Mode.ALPHANUMERIC, dataStr)
-  let byteSegs
-  let kanjiSegs
+  var numSegs = getSegments(Regex.NUMERIC, Mode.NUMERIC, dataStr)
+  var alphaNumSegs = getSegments(Regex.ALPHANUMERIC, Mode.ALPHANUMERIC, dataStr)
+  var byteSegs
+  var kanjiSegs
 
   if (Utils.isKanjiModeEnabled()) {
     byteSegs = getSegments(Regex.BYTE, Mode.BYTE, dataStr)
@@ -62,7 +62,7 @@ function getSegmentsFromString (dataStr) {
     kanjiSegs = []
   }
 
-  const segs = numSegs.concat(alphaNumSegs, byteSegs, kanjiSegs)
+  var segs = numSegs.concat(alphaNumSegs, byteSegs, kanjiSegs)
 
   return segs
     .sort(function (s1, s2) {
@@ -106,7 +106,7 @@ function getSegmentBitsLength (length, mode) {
  */
 function mergeSegments (segs) {
   return segs.reduce(function (acc, curr) {
-    const prevSeg = acc.length - 1 >= 0 ? acc[acc.length - 1] : null
+    var prevSeg = acc.length - 1 >= 0 ? acc[acc.length - 1] : null
     if (prevSeg && prevSeg.mode === curr.mode) {
       acc[acc.length - 1].data += curr.data
       return acc
@@ -134,9 +134,9 @@ function mergeSegments (segs) {
  * @return {Array}      Array of object with segments data
  */
 function buildNodes (segs) {
-  const nodes = []
-  for (let i = 0; i < segs.length; i++) {
-    const seg = segs[i]
+  var nodes = []
+  for (var i = 0; i < segs.length; i++) {
+    var seg = segs[i]
 
     switch (seg.mode) {
       case Mode.NUMERIC:
@@ -178,24 +178,24 @@ function buildNodes (segs) {
  * @return {Object}         Graph of all possible segments
  */
 function buildGraph (nodes, version) {
-  const table = {}
-  const graph = { start: {} }
-  let prevNodeIds = ['start']
+  var table = {}
+  var graph = {'start': {}}
+  var prevNodeIds = ['start']
 
-  for (let i = 0; i < nodes.length; i++) {
-    const nodeGroup = nodes[i]
-    const currentNodeIds = []
+  for (var i = 0; i < nodes.length; i++) {
+    var nodeGroup = nodes[i]
+    var currentNodeIds = []
 
-    for (let j = 0; j < nodeGroup.length; j++) {
-      const node = nodeGroup[j]
-      const key = '' + i + j
+    for (var j = 0; j < nodeGroup.length; j++) {
+      var node = nodeGroup[j]
+      var key = '' + i + j
 
       currentNodeIds.push(key)
       table[key] = { node: node, lastCount: 0 }
       graph[key] = {}
 
-      for (let n = 0; n < prevNodeIds.length; n++) {
-        const prevNodeId = prevNodeIds[n]
+      for (var n = 0; n < prevNodeIds.length; n++) {
+        var prevNodeId = prevNodeIds[n]
 
         if (table[prevNodeId] && table[prevNodeId].node.mode === node.mode) {
           graph[prevNodeId][key] =
@@ -215,8 +215,8 @@ function buildGraph (nodes, version) {
     prevNodeIds = currentNodeIds
   }
 
-  for (let n = 0; n < prevNodeIds.length; n++) {
-    graph[prevNodeIds[n]].end = 0
+  for (n = 0; n < prevNodeIds.length; n++) {
+    graph[prevNodeIds[n]]['end'] = 0
   }
 
   return { map: graph, table: table }
@@ -231,8 +231,8 @@ function buildGraph (nodes, version) {
  * @return {Segment}                 Segment
  */
 function buildSingleSegment (data, modesHint) {
-  let mode
-  const bestMode = Mode.getBestModeForData(data)
+  var mode
+  var bestMode = Mode.getBestModeForData(data)
 
   mode = Mode.from(modesHint, bestMode)
 
@@ -299,14 +299,14 @@ exports.fromArray = function fromArray (array) {
  * @return {Array}          Array of segments
  */
 exports.fromString = function fromString (data, version) {
-  const segs = getSegmentsFromString(data, Utils.isKanjiModeEnabled())
+  var segs = getSegmentsFromString(data, Utils.isKanjiModeEnabled())
 
-  const nodes = buildNodes(segs)
-  const graph = buildGraph(nodes, version)
-  const path = dijkstra.find_path(graph.map, 'start', 'end')
+  var nodes = buildNodes(segs)
+  var graph = buildGraph(nodes, version)
+  var path = dijkstra.find_path(graph.map, 'start', 'end')
 
-  const optimizedSegs = []
-  for (let i = 1; i < path.length - 1; i++) {
+  var optimizedSegs = []
+  for (var i = 1; i < path.length - 1; i++) {
     optimizedSegs.push(graph.table[path[i]].node)
   }
 

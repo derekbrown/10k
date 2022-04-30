@@ -1,9 +1,9 @@
-const canPromise = require('./can-promise')
-const QRCode = require('./core/qrcode')
-const PngRenderer = require('./renderer/png')
-const Utf8Renderer = require('./renderer/utf8')
-const TerminalRenderer = require('./renderer/terminal')
-const SvgRenderer = require('./renderer/svg')
+var canPromise = require('./can-promise')
+var QRCode = require('./core/qrcode')
+var PngRenderer = require('./renderer/png')
+var Utf8Renderer = require('./renderer/utf8')
+var TerminalRenderer = require('./renderer/terminal')
+var SvgRenderer = require('./renderer/svg')
 
 function checkParams (text, opts, cb) {
   if (typeof text === 'undefined') {
@@ -68,7 +68,7 @@ function render (renderFunc, text, params) {
   if (!params.cb) {
     return new Promise(function (resolve, reject) {
       try {
-        const data = QRCode.create(text, params.opts)
+        var data = QRCode.create(text, params.opts)
         return renderFunc(data, params.opts, function (err, data) {
           return err ? reject(err) : resolve(data)
         })
@@ -79,7 +79,7 @@ function render (renderFunc, text, params) {
   }
 
   try {
-    const data = QRCode.create(text, params.opts)
+    var data = QRCode.create(text, params.opts)
     return renderFunc(data, params.opts, params.cb)
   } catch (e) {
     params.cb(e)
@@ -91,21 +91,20 @@ exports.create = QRCode.create
 exports.toCanvas = require('./browser').toCanvas
 
 exports.toString = function toString (text, opts, cb) {
-  const params = checkParams(text, opts, cb)
-  const type = params.opts ? params.opts.type : undefined
-  const renderer = getStringRendererFromType(type)
+  var params = checkParams(text, opts, cb)
+  var renderer = getStringRendererFromType(params.opts.type)
   return render(renderer.render, text, params)
 }
 
 exports.toDataURL = function toDataURL (text, opts, cb) {
-  const params = checkParams(text, opts, cb)
-  const renderer = getRendererFromType(params.opts.type)
+  var params = checkParams(text, opts, cb)
+  var renderer = getRendererFromType(params.opts.type)
   return render(renderer.renderToDataURL, text, params)
 }
 
 exports.toBuffer = function toBuffer (text, opts, cb) {
-  const params = checkParams(text, opts, cb)
-  const renderer = getRendererFromType(params.opts.type)
+  var params = checkParams(text, opts, cb)
+  var renderer = getRendererFromType(params.opts.type)
   return render(renderer.renderToBuffer, text, params)
 }
 
@@ -118,10 +117,10 @@ exports.toFile = function toFile (path, text, opts, cb) {
     throw new Error('Too few arguments provided')
   }
 
-  const params = checkParams(text, opts, cb)
-  const type = params.opts.type || getTypeFromFilename(path)
-  const renderer = getRendererFromType(type)
-  const renderToFile = renderer.renderToFile.bind(null, path)
+  var params = checkParams(text, opts, cb)
+  var type = params.opts.type || getTypeFromFilename(path)
+  var renderer = getRendererFromType(type)
+  var renderToFile = renderer.renderToFile.bind(null, path)
 
   return render(renderToFile, text, params)
 }
@@ -131,8 +130,8 @@ exports.toFileStream = function toFileStream (stream, text, opts) {
     throw new Error('Too few arguments provided')
   }
 
-  const params = checkParams(text, opts, stream.emit.bind(stream, 'error'))
-  const renderer = getRendererFromType('png') // Only png support for now
-  const renderToFileStream = renderer.renderToFileStream.bind(null, stream)
+  var params = checkParams(text, opts, stream.emit.bind(stream, 'error'))
+  var renderer = getRendererFromType('png') // Only png support for now
+  var renderToFileStream = renderer.renderToFileStream.bind(null, stream)
   render(renderToFileStream, text, params)
 }

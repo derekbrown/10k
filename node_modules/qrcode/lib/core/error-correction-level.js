@@ -8,7 +8,7 @@ function fromString (string) {
     throw new Error('Param is not a string')
   }
 
-  const lcStr = string.toLowerCase()
+  var lcStr = string.toLowerCase()
 
   switch (lcStr) {
     case 'l':

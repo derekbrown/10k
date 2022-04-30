@@ -1,5 +1,7 @@
-const EXP_TABLE = new Uint8Array(512)
-const LOG_TABLE = new Uint8Array(256)
+var BufferUtil = require('../utils/buffer')
+
+var EXP_TABLE = BufferUtil.alloc(512)
+var LOG_TABLE = BufferUtil.alloc(256)
 /**
  * Precompute the log and anti-log tables for faster computation later
  *
@@ -9,8 +11,8 @@ const LOG_TABLE = new Uint8Array(256)
  * ref {@link https://en.wikiversity.org/wiki/Reed%E2%80%93Solomon_codes_for_coders#Introduction_to_mathematical_fields}
  */
 ;(function initTables () {
-  let x = 1
-  for (let i = 0; i < 255; i++) {
+  var x = 1
+  for (var i = 0; i < 255; i++) {
     EXP_TABLE[i] = x
     LOG_TABLE[x] = i
 
@@ -27,7 +29,7 @@ const LOG_TABLE = new Uint8Array(256)
   // stay inside the bounds (because we will mainly use this table for the multiplication of
   // two GF numbers, no more).
   // @see {@link mul}
-  for (let i = 255; i < 512; i++) {
+  for (i = 255; i < 512; i++) {
     EXP_TABLE[i] = EXP_TABLE[i - 255]
   }
 }())

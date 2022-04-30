@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import { Provider, NETWORKS } from '@web3-ui/core';
 import { NftProvider } from "use-nft"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Analytics from "./Analytics";
 import AppHeader from "./AppHeader";
 import Wrapper from "./Wrapper";
 
@@ -21,6 +22,7 @@ function App() {
         <Provider network={NETWORKS.mainnet}>
           <div className="flex flex-col items-center justify-start bg-brand-gradient w-full min-h-screen h-full p-8">
             <AppHeader handleChange={handleChange}/>
+            <Analytics/>
             <Switch>
               <Route path="/:num" children={({ match }) => (
                 <Wrapper match={match} number={number}/>

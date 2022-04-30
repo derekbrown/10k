@@ -15,7 +15,7 @@
 - [Binary data](#binary-data)
 - [Multibyte characters](#multibyte-characters)
 - [API](#api)
-- [GS1 QR Codes](#gs1-qr-codes)
+- [GS1 QR Codes](#gs1)
 - [Credits](#credits)
 - [License](#license)
 
@@ -61,7 +61,6 @@ Renderer options:
   -q, --qzone       Quiet zone size                                     [number]
   -l, --lightcolor  Light RGBA hex color
   -d, --darkcolor   Dark RGBA hex color
-  --small  Output smaller QR code to terminal                          [boolean]
 
 Options:
   -o, --output  Output file
@@ -105,7 +104,7 @@ QRCode.toCanvas(canvas, 'sample text', function (error) {
 ```html
 <canvas id="canvas"></canvas>
 
-<script src="/build/qrcode.js"></script>
+<script src="/build/qrcode.min.js"></script>
 <script>
   QRCode.toCanvas(document.getElementById('canvas'), 'sample text', function (error) {
     if (error) console.error(error)
@@ -114,9 +113,7 @@ QRCode.toCanvas(canvas, 'sample text', function (error) {
 </script>
 ```
 
-If you install through `npm`, precompiled files will be available in `node_modules/qrcode/build/` folder.
-
-The precompiled bundle have support for [Internet Explorer 10+, Safari 5.1+, and all evergreen browsers](https://browserl.ist/?q=defaults%2C+IE+%3E%3D+10%2C+Safari+%3E%3D+5.1).
+If you install through `npm`, precompiled files will be available in `node_modules/qrcode/build/` folder.<br>
 
 ### NodeJS
 Require the module `qrcode`
@@ -350,7 +347,7 @@ QRCode.toFile(
 )
 ```
 
-TypeScript users: if you are using [@types/qrcode](https://www.npmjs.com/package/@types/qrcode), you will need to add a `// @ts-ignore` above the data segment because it expects `data: string`.
+TypeScript users: if you are using [@types/qrcode](https://www.npmjs.com/package/@types/qrcode), you will need to add a `// @ts-ignore` above the data segment because it expects `data: string`. 
 
 ## Multibyte characters
 Support for multibyte characters isn't present in the initial QR Code standard, but is possible to encode UTF-8 characters in Byte mode.
@@ -725,12 +722,6 @@ See [Options](#options).
   Default: `4`
 
   Scale factor. A value of `1` means 1px per modules (black dots).
-
-##### `small`
-  Type: `Boolean`<br>
-  Default: `false`
-
-  Relevant only for terminal renderer. Outputs smaller QR code.
 
 ##### `width`
   Type: `Number`<br>

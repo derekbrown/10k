@@ -1,5 +1,5 @@
-const Mode = require('./mode')
-const Utils = require('./utils')
+var Mode = require('./mode')
+var Utils = require('./utils')
 
 function KanjiData (data) {
   this.mode = Mode.KANJI
@@ -19,13 +19,13 @@ KanjiData.prototype.getBitsLength = function getBitsLength () {
 }
 
 KanjiData.prototype.write = function (bitBuffer) {
-  let i
+  var i
 
   // In the Shift JIS system, Kanji characters are represented by a two byte combination.
   // These byte values are shifted from the JIS X 0208 values.
   // JIS X 0208 gives details of the shift coded representation.
   for (i = 0; i < this.data.length; i++) {
-    let value = Utils.toSJIS(this.data[i])
+    var value = Utils.toSJIS(this.data[i])
 
     // For characters with Shift JIS values from 0x8140 to 0x9FFC:
     if (value >= 0x8140 && value <= 0x9FFC) {

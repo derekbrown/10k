@@ -1,13 +1,13 @@
-import { Component, ComponentChild, ComponentChildren } from '../../src';
+import { Component, ComponentChild } from '../../src';
 
 //
 // Suspense/lazy
 // -----------------------------------
-export function lazy<T>(loader: () => Promise<{ default: T } | T>): T;
+export function lazy<T>(loader: () => Promise<{ default: T }>): T;
 
 export interface SuspenseProps {
-	children?: ComponentChildren;
-	fallback: ComponentChildren;
+	children?: preact.ComponentChildren;
+	fallback: preact.ComponentChildren;
 }
 
 export class Suspense extends Component<SuspenseProps> {

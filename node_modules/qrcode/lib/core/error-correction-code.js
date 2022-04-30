@@ -1,6 +1,6 @@
-const ECLevel = require('./error-correction-level')
+var ECLevel = require('./error-correction-level')
 
-const EC_BLOCKS_TABLE = [
+var EC_BLOCKS_TABLE = [
 // L  M  Q  H
   1, 1, 1, 1,
   1, 1, 1, 1,
@@ -44,7 +44,7 @@ const EC_BLOCKS_TABLE = [
   25, 49, 68, 81
 ]
 
-const EC_CODEWORDS_TABLE = [
+var EC_CODEWORDS_TABLE = [
 // L  M  Q  H
   7, 10, 13, 17,
   10, 16, 22, 28,
