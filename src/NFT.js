@@ -22,7 +22,7 @@ function NFT({contractAddress, name, size, tokenId}) {
     <div className="grow-0 shrink-0 flex flex-col aspect-square mr-4 cursor-pointer rounded-lg hover:bg-gray-50 relative shadow-lg">
       <a
         className={`relative`}
-        href={`https://opensea.io/assets/${contractAddress}/${tokenId}`}
+        href={`https://etherscan.io/nft/${contractAddress}/${tokenId}`}
         rel="noreferrer"
         target="_blank">
         {nft.owner === address && <div className="text-center text-xs py-2 opacity-90 absolute -translate-x-1/2 -translate-y-1/2 transform top-1/2 left-1/2 -mt-4 bg-blue-50 w-4/5 rounded-lg text-gray-800">OWNED BY {tokenId}.eth</div>}
