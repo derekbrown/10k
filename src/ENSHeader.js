@@ -4,7 +4,7 @@ import ENSInfo from "./ENSInfo";
 function ENSHeader({number}) {
 
   return (
-    <div className="flex flex-col sm:flex-row w-full">
+    <div className="flex flex-col sm:flex-row w-full mb-4">
       <h2 className="text-6xl font-bold bebas mr-8 mb-4 sm:mb-0">{number}.eth</h2>
       <ENSInfo number={number}/>
     </div>
