@@ -2,6 +2,8 @@ import React from "react";
 import { LOOKSRARE } from "../assets";
 
 function LooksRare({contractAddress, tokenId}) {
+
+  if (!contractAddress || !tokenId) return <></>;
   return (
     <a
       className="block flex flex-row w-full justify-center items-center text-center px-2 py-1 rounded-full shadow depress text-sm border-4 border-gray-100 hover:border-green-400 bg-white font-semibold"

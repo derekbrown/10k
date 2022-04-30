@@ -19,7 +19,9 @@ function ENSInfo({number}) {
   }, [number, setAddress])
 
   useEffect(() => {
-    setTokenId(_.find(TENK_TOKENS, ['nnnn', `${number}`]).tokenId)
+    let tokenEntry = _.find(TENK_TOKENS, ['nnnn', `${number}`]);
+    if (!tokenEntry) return;
+    setTokenId(tokenEntry.tokenId)
   }, [number, setTokenId])
 
   return (
