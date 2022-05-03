@@ -7,6 +7,7 @@ export const SUPPORTED_NFTS = [
   {name: "Goopdood",          contractAddress: "0x2dff22dcb59d6729ed543188033ce102f14ef0d1"},
   {name: "Tiny Dino",         contractAddress: "0xd9b78a2f1dafc8bb9c60961790d2beefebee56f4"},
   {name: "Animeta",           contractAddress: "0x18df6c571f6fe9283b87f910e41dc5c8b77b7da5"},
+  {name: "Developer DAO",     contractAddress: "0x25ed58c027921e14d86380ea2646e3a1b5c55a8b"},
   {name: "Chainrunner",       contractAddress: "0x97597002980134bea46250aa0510c9b90d87a587"},
   {name: "DeadFellaz",        contractAddress: "0x2acab3dea77832c09420663b0e1cb386031ba17b"}, // CORS Issue
   {name: "Cool Cats",         contractAddress: "0x1a92f7381b9f03921564a437210bb9396471050c"},
