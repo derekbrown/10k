@@ -37,7 +37,7 @@ function Analytics() {
       <AnalyticsItem title={"1K Floor"} text={`${formatNum(threeFloor) ?? 0}Ξ`} provider={"wipiway"}/>
       <AnalyticsItem title={"10K Floor"} text={`${formatNum(fourFloor) ?? 0}Ξ`} provider={"wipiway"}/>
       <AnalyticsItem title={"Holders"} text={`${holders ?? 0}`} provider={"poprank"}/>
-      <AnalyticsItem title={"Twitter"} text={"6135"} provider={"twitter"}/>
+      <AnalyticsItem title={"Twitter"} text={"≈12K"} provider={"twitter"}/>
     </div>
   );
 }
