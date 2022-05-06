@@ -1,5 +1,13 @@
-import React, { useState } from "react";
-import { ethers } from "ethers";
+import React, { useEffect, useState } from "react";
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  apiProvider,
+  configureChains,
+  getDefaultWallets,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { chain, createClient, WagmiProvider } from 'wagmi';
+import ReactGA from "react-ga";
 import { Provider, NETWORKS } from '@web3-ui/core';
 import { NftProvider } from "use-nft"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -7,7 +15,27 @@ import Analytics from "./Analytics";
 import AppHeader from "./AppHeader";
 import Wrapper from "./Wrapper";
 
-const fetcher = ["ethers", { ethers, provider: new ethers.providers.AlchemyProvider(null, "92FsN3H0jQHXFn3_eNKYXY9IRPiMcnI7") }]
+const { chains, provider } = configureChains([chain.mainnet],
+  [
+    apiProvider.alchemy(process.env.ALCHEMY_ID),
+    apiProvider.fallback()
+  ]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: 'My RainbowKit App',
+  chains
+});
+
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider
+})
+
+const fetcher = ["ethers", { ethers, provider: new ethers.providers.AlchemyProvider(null, process.env.ALCHEMY_ID) }]
+
+ReactGA.initialize("UA-227805767-1");
 
 function App() {
   const [ number, setNumber ] = useState(false);
@@ -15,6 +43,11 @@ function App() {
   const handleChange = (event) => {
     setNumber(event.target.value);
   }
+
+  // Track PageViews
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <BrowserRouter>
