@@ -8,10 +8,11 @@ export const getHolders = async (callback) => {
 }
 
 export const getFloor = async (threeDigit, callback) => {
-  await fetch(`https://digitclub.herokuapp.com/ens-list?page=1&offset=50&${threeDigit ? "threedigit=true" : ""}`)
+  await fetch(`https://api.poprank.io/collection?slug=ens`)
   .then(async (result) => {
     await result.json().then((res) => {
-      callback(res.floor_price);
+      console.log(res.data);
+      callback(res.data ? res.data.floorPrice : "0");
     });
   });
 }
