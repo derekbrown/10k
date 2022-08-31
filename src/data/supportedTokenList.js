@@ -3,6 +3,7 @@ export const SUPPORTED_NFTS = [
   {name: "Cryptopunk",        contractAddress: "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"},
   {name: "BAYC",              contractAddress: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"},
   {name: "MAYC",              contractAddress: "0x60e4d786628fea6478f785a6d7e704777c86a7c6"},
+  {name: "N Project",         contractAddress: "0x05a46f1e545526fb803ff974c790acea34d1f2d6"},
   {name: "Crypto Ape",        contractAddress: "0x29714cafe792ef8b8c649451d13c89e21a0d7f5b"},
   {name: "Moonbird",          contractAddress: "0x23581767a106ae21c074b2276d25e5c3e136a68b"},
   {name: "Goopdood",          contractAddress: "0x2dff22dcb59d6729ed543188033ce102f14ef0d1"},
