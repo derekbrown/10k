@@ -22,7 +22,7 @@ function Analytics() {
     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 w-full mb-8">
       <AnalyticsItem title={"ENS Floor"} text={`${floorPrice ?? 0}Ξ`} provider={"poprank"}/>
       <AnalyticsItem title={"Holders"} text={`${holders ?? 0}`} provider={"poprank"}/>
-      <AnalyticsItem title={"Twitter"} text={"≈12K"} provider={"twitter"}/>
+      <AnalyticsItem title={"Twitter"} text={"≈18K"} provider={"twitter"}/>
     </div>
   );
 }
