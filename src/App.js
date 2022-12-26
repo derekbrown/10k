@@ -7,7 +7,9 @@ import Analytics from "./Analytics";
 import AppHeader from "./AppHeader";
 import Wrapper from "./Wrapper";
 
-const fetcher = ["ethers", { ethers, provider: new ethers.providers.AlchemyProvider(null, process.env.ALCHEMY_ID) }]
+const fetcher = ["ethers", {
+  ethers, provider: new ethers.providers.AlchemyProvider(null, process.env.REACT_APP_ALCHEMY_ID)
+}];
 
 function App() {
   const [ number, setNumber ] = useState(false);
