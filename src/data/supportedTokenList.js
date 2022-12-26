@@ -28,7 +28,7 @@ export const SUPPORTED_NFTS = [
   {name: "mfers",             contractAddress: "0x79fcdef22feed20eddacbb2587640e45491b757f"},
   {name: "alien frens",       contractAddress: "0x123b30e25973fecd8354dd5f41cc45a3065ef88c"},
   {name: "BAKC",              contractAddress: "0xba30e5f9bb24caa003e9f2f0497ad287fdf95623"},
-  {name: "Creepz Genesis",    contractAddress: "0xfe8c6d19365453d26af321d0e8c910428c23873f"},
+  {name: "Friendship Bracelets",    contractAddress: "0x942bc2d3e7a589fe5bd4a5c6ef9727dfd82f5c8a"},
   {name: "Loot",              contractAddress: "0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7"},
   {name: "CryptoKitties",     contractAddress: "0x06012c8cf97bead5deae237070f9587f8e7a266d"},
   {name: "CrypToadz",         contractAddress: "0x1cb1a5e65610aeff2551a50f76a87a7d3fb649c6"},
