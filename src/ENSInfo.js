@@ -10,7 +10,7 @@ function ENSInfo({number}) {
 
   useEffect(() => {
     async function getAddress () {
-      let provider = new ethers.providers.AlchemyProvider(null, "92FsN3H0jQHXFn3_eNKYXY9IRPiMcnI7");
+      let provider = new ethers.providers.AlchemyProvider(null, process.env.ALCHEMY_ID);
       await provider.resolveName(`${number}.eth`).then(async result => {
         setAddress(result)
       })
